@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sistema de Sorteio</title>
+</head>
+<body>
+
+<h1>Sorteio Aleatório</h1>
+
+<p>Itens para sorteio:</p>
+<ul id="itemList">
+    <li>Prêmio 1</li>
+    <li>Prêmio 2</li>
+    <li>Prêmio 3</li>
+    <li>Prêmio 4</li>
+    <li>Prêmio 5</li>
+</ul>
+
+<button id="sortearBtn">Sortear</button>
+<p id="resultado"></p>
+
+<script>
+document.getElementById("sortearBtn").addEventListener("click", function() {
+    var itens = document.querySelectorAll("#itemList li");
+    
+    if (itens.length === 0) {
+        document.getElementById("resultado").textContent = "Nenhum item para sortear.";
+        return;
+    }
+    
+    var indiceSorteado = Math.floor(Math.random() * itens.length);
+    var itemSorteado = itens[indiceSorteado].textContent;
+    
+    document.getElementById("resultado").textContent = "Item sorteado: " + itemSorteado;
+});
+</script>
+
+</body>
+</html>
